@@ -134,47 +134,22 @@ p, li {
     position: relative;
 }
 
-/* About header */
 .about-header {
-    background: linear-gradient(
-        to bottom right,
-        var(--deep-blue),
-        var(--blue-mid),
-        var(--green-deep)
-    );
+    background: linear-gradient(to bottom right, var(--deep-blue), var(--blue-mid), var(--green-deep));
 }
 
-/* Counselling header */
 .counselling-header {
-    background: linear-gradient(
-        to bottom right,
-        var(--deep-blue),
-        var(--blue-mid),
-        var(--green-deep)
-    );
+    background: linear-gradient(to bottom right, var(--deep-blue), var(--blue-mid), var(--green-deep));
 }
 
-/* Play Therapy header */
 .play-header {
-    background: linear-gradient(
-        to bottom right,
-        var(--blue-mid),
-        var(--blue-soft),
-        var(--accent-orange)
-    );
+    background: linear-gradient(to bottom right, var(--blue-mid), var(--blue-soft), var(--accent-orange));
 }
 
-/* FAQ header */
 .faq-header {
-    background: linear-gradient(
-        to bottom right,
-        var(--blue-soft),
-        var(--green-deep),
-        var(--deep-blue)
-    );
+    background: linear-gradient(to bottom right, var(--blue-soft), var(--green-deep), var(--deep-blue));
 }
 
-/* Fees header with Sea2.jpeg */
 .fees-header {
     background: url('Sea2.jpeg') center/cover no-repeat;
 }
@@ -198,22 +173,13 @@ p, li {
     padding: 20px;
 }
 
-/* Feature images (Counselling, Play, FAQs) */
-.feature-img {
+.feature-img,
+.profile-img {
     width: 100%;
     max-width: 450px;
     float: right;
     margin: 0 0 20px 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-/* Profile image (About page) */
-.profile-img {
-    width: 260px;
-    border-radius: 12px;
-    float: right;
-    margin: 0 0 20px 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
@@ -234,14 +200,12 @@ p, li {
     border-left: 6px solid var(--accent-orange);
 }
 
-/* FAQ items */
 .faq-item {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--blue-soft);
 }
 
-/* Fees boxes */
 .fee-box {
     background: var(--blue-mid);
     padding: 20px;
@@ -258,4 +222,143 @@ p, li {
     content: "";
     display: block;
     clear: both;
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVE DESIGN
+----------------------------------------------------------- */
+
+/* Tablets and small laptops */
+@media (max-width: 992px) {
+    .navbar ul {
+        gap: 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+
+    /* Stack nav items */
+    .navbar {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .logo {
+        height: 50px;
+    }
+
+    /* Hero text */
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    /* Images stack above text */
+    .feature-img,
+    .profile-img {
+        float: none;
+        display: block;
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .styled-list li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .button {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+}
+/* -----------------------------------------------------------
+   FOOTER
+----------------------------------------------------------- */
+.site-footer {
+    background: var(--deep-blue);
+    color: var(--pale-cream);
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 10px;
+    color: var(--pale-cream);
+}
+
+.footer-section p,
+.footer-section li {
+    color: var(--cream);
+    margin: 6px 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section a {
+    color: var(--accent-orange);
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: var(--blue-soft);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--blue-mid);
+    color: var(--cream);
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
 }
