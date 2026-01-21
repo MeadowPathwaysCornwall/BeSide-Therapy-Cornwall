@@ -1,0 +1,373 @@
+/* -----------------------------------------------------------
+   COLOUR PALETTE
+----------------------------------------------------------- */
+:root {
+    --deep-blue: #1A3F73;
+    --blue-mid: #296374;
+    --blue-soft: #629FAD;
+    --cream: #EDEDCE;
+    --pale-cream: #F5FBE6;
+    --green-deep: #215E61;
+    --blue-dark: #233D4D;
+    --accent-orange: #FE7F2D;
+}
+
+/* -----------------------------------------------------------
+   GLOBAL STYLES
+----------------------------------------------------------- */
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: var(--blue-dark);
+    color: var(--pale-cream);
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    color: var(--pale-cream);
+    margin-top: 0;
+}
+
+p, li {
+    color: var(--cream);
+}
+
+/* -----------------------------------------------------------
+   NAVIGATION BAR
+----------------------------------------------------------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 30px;
+    background: var(--deep-blue);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 22px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    color: var(--pale-cream);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--accent-orange);
+}
+
+/* -----------------------------------------------------------
+   LOGO BADGE — PILL STYLE
+----------------------------------------------------------- */
+.logo-badge {
+    border: 2px solid var(--accent-orange);
+    padding: 4px 14px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 8px rgba(254, 127, 45, 0.3);
+}
+
+.logo-badge img {
+    height: 52px;
+    display: block;
+}
+
+/* -----------------------------------------------------------
+   BUTTON STYLE
+----------------------------------------------------------- */
+.button {
+    background: var(--accent-orange);
+    padding: 10px 18px;
+    border-radius: 6px;
+    color: var(--blue-dark);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: var(--blue-soft);
+    color: var(--pale-cream);
+}
+
+/* -----------------------------------------------------------
+   HERO SECTION (HOME PAGE)
+----------------------------------------------------------- */
+.hero {
+    background: url('Sea.jpeg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 44, 85, 0.55);
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+}
+
+/* -----------------------------------------------------------
+   PAGE HEADERS
+----------------------------------------------------------- */
+.sub-header {
+    padding: 90px 20px 60px;
+    text-align: center;
+    margin-top: 80px;
+    position: relative;
+}
+
+.about-header,
+.counselling-header {
+    background: linear-gradient(to bottom right, var(--deep-blue), var(--blue-mid), var(--green-deep));
+}
+
+.play-header {
+    background: linear-gradient(to bottom right, var(--blue-mid), var(--blue-soft), var(--accent-orange));
+}
+
+.faq-header {
+    background: linear-gradient(to bottom right, var(--blue-soft), var(--green-deep), var(--deep-blue));
+}
+
+.fees-header {
+    background: url('Sea2.jpeg') center/cover no-repeat;
+}
+
+.fees-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(12, 44, 85, 0.55);
+}
+
+/* -----------------------------------------------------------
+   CONTENT SECTIONS
+----------------------------------------------------------- */
+.content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.feature-img,
+.profile-img {
+    width: 100%;
+    max-width: 450px;
+    float: right;
+    margin: 0 0 20px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* -----------------------------------------------------------
+   LIST STYLES
+----------------------------------------------------------- */
+.styled-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.styled-list li {
+    background: var(--blue-mid);
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    color: var(--pale-cream);
+    border-left: 6px solid var(--accent-orange);
+}
+
+.faq-item {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--blue-soft);
+}
+
+.fee-box {
+    background: var(--blue-mid);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    border-left: 6px solid var(--accent-orange);
+    color: var(--pale-cream);
+}
+
+/* -----------------------------------------------------------
+   CLEAR FLOATS
+----------------------------------------------------------- */
+.content::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVE DESIGN
+----------------------------------------------------------- */
+
+/* Tablets and small laptops */
+@media (max-width: 992px) {
+    .navbar ul {
+        gap: 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        padding: 12px;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 10px;
+    }
+
+    .logo-badge {
+        margin: 0 auto 10px;
+        padding: 4px 14px;
+    }
+
+    .logo-badge img {
+        height: 50px;
+    }
+
+    .feature-img,
+    .profile-img {
+        float: none;
+        display: block;
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .styled-list li {
+        font-size: 0.95rem;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .button {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+/* -----------------------------------------------------------
+   FOOTER
+----------------------------------------------------------- */
+.site-footer {
+    background: var(--deep-blue);
+    color: var(--pale-cream);
+    padding: 40px 20px 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 10px;
+    color: var(--pale-cream);
+}
+
+.footer-section p,
+.footer-section li {
+    color: var(--cream);
+    margin: 6px 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section a {
+    color: var(--accent-orange);
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: var(--blue-soft);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--blue-mid);
+    color: var(--cream);
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
