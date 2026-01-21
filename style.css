@@ -68,7 +68,7 @@ p, li {
 }
 
 /* -----------------------------------------------------------
-   BADGE-STYLE LOGO
+   BADGE-STYLE LOGO (refined + integrated)
 ----------------------------------------------------------- */
 .logo-badge {
     border: 2px solid var(--accent-orange);
@@ -270,6 +270,16 @@ p, li {
         margin-top: 10px;
     }
 
+    /* Badge adjustments */
+    .logo-badge {
+        margin: 0 auto 10px;
+        padding: 4px 8px;
+    }
+
+    .logo-badge img {
+        height: 55px;
+    }
+
     .feature-img,
     .profile-img {
         float: none;
@@ -284,16 +294,6 @@ p, li {
 
     .styled-list li {
         font-size: 0.95rem;
-    }
-
-    @media (max-width: 768px) {
-    .logo-badge {
-        margin: 0 auto 10px;
-        padding: 4px 8px;
-    }
-
-    .logo-badge img {
-        height: 55px;
     }
 }
 
