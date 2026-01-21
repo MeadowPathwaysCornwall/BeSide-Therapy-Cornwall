@@ -70,6 +70,26 @@ p, li {
 .logo {
     height: 60px;
 }
+/* -----------------------------------------------------------
+   BADGE-STYLE LOGO
+----------------------------------------------------------- */
+
+.logo-badge {
+    background: var(--blue-dark);
+    border: 4px solid var(--accent-orange);
+    padding: 10px 14px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    margin-right: 20px;
+}
+
+.logo-badge img {
+    height: 80px; /* Increase or decrease depending on feel */
+    display: block;
+}
 
 /* -----------------------------------------------------------
    BUTTON STYLE
