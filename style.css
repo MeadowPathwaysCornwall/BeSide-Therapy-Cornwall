@@ -68,21 +68,22 @@ p, li {
 }
 
 /* -----------------------------------------------------------
-   BADGE-STYLE LOGO (refined + integrated)
+   INTEGRATED PILL‑STYLE LOGO BADGE
 ----------------------------------------------------------- */
 .logo-badge {
     border: 2px solid var(--accent-orange);
-    padding: 4px 8px;
-    border-radius: 10px;
+    padding: 4px 14px;
+    border-radius: 40px; /* pill shape */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 16px;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.06); /* subtle blend */
+    backdrop-filter: blur(4px); /* soft integration */
 }
 
 .logo-badge img {
-    height: 60px;
+    height: 52px; /* consistent across all pages */
     display: block;
 }
 
@@ -273,11 +274,11 @@ p, li {
     /* Badge adjustments */
     .logo-badge {
         margin: 0 auto 10px;
-        padding: 4px 8px;
+        padding: 4px 14px;
     }
 
     .logo-badge img {
-        height: 55px;
+        height: 50px;
     }
 
     .feature-img,
