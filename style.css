@@ -320,7 +320,15 @@ p, li {
         padding: 8px 14px;
         font-size: 0.9rem;
     }
-}
+   @media (max-width: 768px) {
+    .logo-badge {
+        margin: 0 auto 10px;
+        padding: 8px 12px;
+    }
+
+    .logo-badge img {
+        height: 70px;
+    }
 /* -----------------------------------------------------------
    FOOTER
 ----------------------------------------------------------- */
