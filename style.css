@@ -5,10 +5,9 @@
     --deep-blue: #1A3F73;
     --blue-mid: #296374;
     --blue-soft: #629FAD;
+    --blue-dark: #233D4D;
     --cream: #EDEDCE;
     --pale-cream: #F5FBE6;
-    --green-deep: #215E61;
-    --blue-dark: #233D4D;
     --accent-orange: #FE7F2D;
 }
 
@@ -18,33 +17,47 @@
 body {
     margin: 0;
     font-family: "Arial", sans-serif;
-    background-color: var(--pale-cream);
-    color: var(--blue-dark);
+    background-color: var(--blue-dark);
+    color: var(--cream);
     line-height: 1.7;
 }
 
 h1, h2, h3 {
-    color: var(--blue-dark);
+    color: var(--pale-cream);
     margin-top: 0;
 }
 
 p, li {
-    color: var(--blue-dark);
+    color: var(--cream);
 }
 
 /* -----------------------------------------------------------
-   NAVIGATION BAR
+   NAVIGATION BAR + LOGO INTEGRATION
 ----------------------------------------------------------- */
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 18px 30px;
+    padding: 0 30px;
     background: var(--deep-blue);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 10;
+    height: 90px;
+    border-bottom: 3px solid var(--accent-orange);
+}
+
+.logo-badge {
+    border-right: 3px solid var(--accent-orange);
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    background: transparent;
+    border-radius: 0;
+}
+
+.logo-badge img {
+    height: 75px;
+    display: block;
 }
 
 .navbar ul {
@@ -52,7 +65,8 @@ p, li {
     display: flex;
     gap: 22px;
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 20px;
+    border-left: 3px solid var(--accent-orange);
 }
 
 .navbar a {
@@ -65,26 +79,6 @@ p, li {
 .navbar a:hover,
 .navbar a.active {
     color: var(--accent-orange);
-}
-
-/* -----------------------------------------------------------
-   LOGO BADGE — IMPROVED SIZE + INTEGRATION
------------------------------------------------------------ */
-.logo-badge {
-    border: 2px solid var(--accent-orange);
-    padding: 6px 18px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(4px);
-    box-shadow: 0 0 10px rgba(254, 127, 45, 0.35);
-}
-
-.logo-badge img {
-    height: 70px;
-    display: block;
 }
 
 /* -----------------------------------------------------------
@@ -108,11 +102,10 @@ p, li {
    PAGE HEADERS
 ----------------------------------------------------------- */
 .sub-header {
-    padding: 90px 20px 60px;
+    padding: 110px 20px 60px;
     text-align: center;
-    margin-top: 80px;
-    position: relative;
-    background: linear-gradient(to bottom right, var(--deep-blue), var(--blue-mid), var(--green-deep));
+    margin-top: 0;
+    background: linear-gradient(to bottom right, var(--deep-blue), var(--blue-mid), var(--blue-soft));
 }
 
 .sub-header h1,
@@ -130,7 +123,7 @@ p, li {
 }
 
 /* -----------------------------------------------------------
-   IMAGE STYLING — SOFT FRAME + GLOW
+   IMAGE STYLING — FIXED SIZES + NO CROPPING + FRAMED
 ----------------------------------------------------------- */
 .page-image {
     text-align: center;
@@ -138,38 +131,55 @@ p, li {
 }
 
 .page-image img {
-    max-width: 350px;
+    max-width: 280px;
     width: 100%;
     height: auto;
     border-radius: 12px;
-    border: 4px solid var(--cream);
-    background: var(--pale-cream);
+    border: 3px solid var(--cream);
+    background: rgba(255,255,255,0.08);
     padding: 6px;
     box-shadow:
-        0 4px 12px rgba(0,0,0,0.25),
-        0 0 14px rgba(254, 127, 45, 0.35);
+        0 4px 12px rgba(0,0,0,0.35),
+        0 0 12px rgba(254, 127, 45, 0.25);
+}
+
+/* For floating images on About page */
+.feature-img,
+.profile-img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    float: right;
+    margin: 0 0 20px 20px;
+    border-radius: 12px;
+    border: 3px solid var(--cream);
+    background: rgba(255,255,255,0.08);
+    padding: 6px;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.35),
+        0 0 12px rgba(254, 127, 45, 0.25);
 }
 
 /* -----------------------------------------------------------
-   THERAPY SECTIONS — LIGHTER + READABLE
+   THERAPY SECTIONS — DARK THEME, READABLE, SOFT
 ----------------------------------------------------------- */
 .walking-therapy,
 .play-therapy-schools,
 .contact-form {
-    background: var(--cream);
+    background: rgba(0, 0, 0, 0.18);
     padding: 30px;
     margin: 40px auto;
     border-radius: 12px;
     max-width: 900px;
-    color: var(--blue-dark);
+    color: var(--pale-cream);
     border-left: 6px solid var(--accent-orange);
-    box-shadow: 0 0 12px rgba(254, 127, 45, 0.25);
+    box-shadow: 0 0 12px rgba(0,0,0,0.4);
 }
 
 .walking-therapy h2,
 .play-therapy-schools h2,
 .contact-form h2 {
-    color: var(--blue-dark);
+    color: var(--pale-cream);
     margin-bottom: 15px;
 }
 
@@ -186,7 +196,7 @@ p, li {
 }
 
 .contact-form label {
-    color: var(--blue-dark);
+    color: var(--pale-cream);
 }
 
 /* -----------------------------------------------------------
@@ -198,11 +208,11 @@ p, li {
 }
 
 .styled-list li {
-    background: var(--cream);
+    background: rgba(255,255,255,0.08);
     padding: 12px 16px;
     margin-bottom: 12px;
     border-radius: 8px;
-    color: var(--blue-dark);
+    color: var(--pale-cream);
     border-left: 6px solid var(--accent-orange);
 }
 
@@ -213,6 +223,7 @@ p, li {
 
     .navbar {
         flex-direction: column;
+        height: auto;
         padding: 12px;
     }
 
@@ -221,10 +232,14 @@ p, li {
         justify-content: center;
         gap: 12px;
         margin-top: 10px;
+        border-left: none;
+        padding-left: 0;
     }
 
     .logo-badge {
-        margin: 0 auto 10px;
+        border-right: none;
+        padding: 0;
+        margin-bottom: 10px;
     }
 
     .logo-badge img {
@@ -233,6 +248,14 @@ p, li {
 
     .content {
         padding: 10px;
+    }
+
+    .feature-img,
+    .profile-img {
+        float: none;
+        display: block;
+        margin: 20px auto;
+        max-width: 90%;
     }
 }
 
