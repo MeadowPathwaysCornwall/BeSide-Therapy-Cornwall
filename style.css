@@ -18,18 +18,18 @@
 body {
     margin: 0;
     font-family: "Arial", sans-serif;
-    background-color: var(--blue-dark);
-    color: var(--pale-cream);
+    background-color: var(--pale-cream);
+    color: var(--blue-dark);
     line-height: 1.7;
 }
 
 h1, h2, h3 {
-    color: var(--pale-cream);
+    color: var(--blue-dark);
     margin-top: 0;
 }
 
 p, li {
-    color: var(--cream);
+    color: var(--blue-dark);
 }
 
 /* -----------------------------------------------------------
@@ -68,23 +68,22 @@ p, li {
 }
 
 /* -----------------------------------------------------------
-   LOGO BADGE — PILL STYLE
+   LOGO BADGE — IMPROVED SIZE + INTEGRATION
 ----------------------------------------------------------- */
 .logo-badge {
     border: 2px solid var(--accent-orange);
-    padding: 4px 14px;
-    border-radius: 40px;
+    padding: 6px 18px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 16px;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(4px);
-    box-shadow: 0 0 8px rgba(254, 127, 45, 0.3);
+    box-shadow: 0 0 10px rgba(254, 127, 45, 0.35);
 }
 
 .logo-badge img {
-    height: 52px;
+    height: 70px;
     display: block;
 }
 
@@ -106,42 +105,6 @@ p, li {
 }
 
 /* -----------------------------------------------------------
-   HERO SECTION (HOME PAGE)
------------------------------------------------------------ */
-.hero {
-    background: url('Sea.jpeg') center/cover no-repeat;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin-top: 80px;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(12, 44, 85, 0.55);
-}
-
-.hero-content {
-    position: relative;
-    text-align: center;
-    z-index: 2;
-}
-
-.hero-content h1 {
-    font-size: 3.2rem;
-}
-
-.hero-content p {
-    font-size: 1.4rem;
-}
-
-/* -----------------------------------------------------------
    PAGE HEADERS
 ----------------------------------------------------------- */
 .sub-header {
@@ -149,33 +112,12 @@ p, li {
     text-align: center;
     margin-top: 80px;
     position: relative;
-}
-
-.about-header,
-.counselling-header {
     background: linear-gradient(to bottom right, var(--deep-blue), var(--blue-mid), var(--green-deep));
 }
 
-.play-header {
-    background: linear-gradient(to bottom right, var(--blue-mid), var(--blue-soft), var(--accent-orange));
-}
-
-.faq-header {
-    background: linear-gradient(to bottom right, var(--blue-soft), var(--green-deep), var(--deep-blue));
-}
-
-.fees-header {
-    background: url('Sea2.jpeg') center/cover no-repeat;
-}
-
-.fees-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(12, 44, 85, 0.55);
+.sub-header h1,
+.sub-header p {
+    color: var(--pale-cream);
 }
 
 /* -----------------------------------------------------------
@@ -187,18 +129,8 @@ p, li {
     padding: 20px;
 }
 
-.feature-img,
-.profile-img {
-    width: 100%;
-    max-width: 450px;
-    float: right;
-    margin: 0 0 20px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
 /* -----------------------------------------------------------
-   NEW IMAGE STYLE — SOFT BORDER + GLOW
+   IMAGE STYLING — SOFT FRAME + GLOW
 ----------------------------------------------------------- */
 .page-image {
     text-align: center;
@@ -210,10 +142,51 @@ p, li {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    border: 3px solid var(--accent-orange);
-    box-shadow: 
+    border: 4px solid var(--cream);
+    background: var(--pale-cream);
+    padding: 6px;
+    box-shadow:
         0 4px 12px rgba(0,0,0,0.25),
-        0 0 12px rgba(254, 127, 45, 0.4);
+        0 0 14px rgba(254, 127, 45, 0.35);
+}
+
+/* -----------------------------------------------------------
+   THERAPY SECTIONS — LIGHTER + READABLE
+----------------------------------------------------------- */
+.walking-therapy,
+.play-therapy-schools,
+.contact-form {
+    background: var(--cream);
+    padding: 30px;
+    margin: 40px auto;
+    border-radius: 12px;
+    max-width: 900px;
+    color: var(--blue-dark);
+    border-left: 6px solid var(--accent-orange);
+    box-shadow: 0 0 12px rgba(254, 127, 45, 0.25);
+}
+
+.walking-therapy h2,
+.play-therapy-schools h2,
+.contact-form h2 {
+    color: var(--blue-dark);
+    margin-bottom: 15px;
+}
+
+/* Contact form fields */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border-radius: 6px;
+    border: 1px solid var(--blue-soft);
+    background: var(--pale-cream);
+    color: var(--blue-dark);
+}
+
+.contact-form label {
+    color: var(--blue-dark);
 }
 
 /* -----------------------------------------------------------
@@ -225,93 +198,17 @@ p, li {
 }
 
 .styled-list li {
-    background: var(--blue-mid);
+    background: var(--cream);
     padding: 12px 16px;
     margin-bottom: 12px;
     border-radius: 8px;
-    color: var(--pale-cream);
-    border-left: 6px solid var(--accent-orange);
-}
-
-.faq-item {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--blue-soft);
-}
-
-.fee-box {
-    background: var(--blue-mid);
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    border-left: 6px solid var(--accent-orange);
-    color: var(--pale-cream);
-}
-
-/* -----------------------------------------------------------
-   NEW THERAPY SECTIONS
------------------------------------------------------------ */
-.walking-therapy,
-.play-therapy-schools,
-.contact-form {
-    background: var(--blue-mid);
-    padding: 30px;
-    margin: 40px auto;
-    border-radius: 12px;
-    max-width: 900px;
-    color: var(--pale-cream);
-    border-left: 6px solid var(--accent-orange);
-    box-shadow: 0 0 12px rgba(254, 127, 45, 0.3);
-}
-
-.walking-therapy h2,
-.play-therapy-schools h2,
-.contact-form h2 {
-    color: var(--pale-cream);
-    margin-bottom: 15px;
-}
-
-/* Contact form fields */
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0 20px;
-    border-radius: 6px;
-    border: none;
-    background: var(--cream);
     color: var(--blue-dark);
-}
-
-/* -----------------------------------------------------------
-   CLEAR FLOATS
------------------------------------------------------------ */
-.content::after {
-    content: "";
-    display: block;
-    clear: both;
+    border-left: 6px solid var(--accent-orange);
 }
 
 /* -----------------------------------------------------------
    RESPONSIVE DESIGN
 ----------------------------------------------------------- */
-
-/* Tablets and small laptops */
-@media (max-width: 992px) {
-    .navbar ul {
-        gap: 14px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.6rem;
-    }
-
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-}
-
-/* Mobile devices */
 @media (max-width: 768px) {
 
     .navbar {
@@ -328,39 +225,14 @@ p, li {
 
     .logo-badge {
         margin: 0 auto 10px;
-        padding: 4px 14px;
     }
 
     .logo-badge img {
-        height: 50px;
-    }
-
-    .feature-img,
-    .profile-img {
-        float: none;
-        display: block;
-        margin: 20px auto;
-        max-width: 90%;
+        height: 60px;
     }
 
     .content {
         padding: 10px;
-    }
-
-    .styled-list li {
-        font-size: 0.95rem;
-    }
-}
-
-/* Very small screens */
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-
-    .button {
-        padding: 8px 14px;
-        font-size: 0.9rem;
     }
 }
 
@@ -395,12 +267,6 @@ p, li {
     margin: 6px 0;
 }
 
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
 .footer-section a {
     color: var(--accent-orange);
     text-decoration: none;
@@ -416,12 +282,4 @@ p, li {
     padding-top: 15px;
     border-top: 1px solid var(--blue-mid);
     color: var(--cream);
-}
-
-/* Responsive footer */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
 }
