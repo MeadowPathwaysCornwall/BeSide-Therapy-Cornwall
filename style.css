@@ -2,13 +2,11 @@
    COLOUR PALETTE
 ----------------------------------------------------------- */
 :root {
-    --deep-blue: #1A3F73;
-    --blue-mid: #296374;
-    --blue-soft: #629FAD;
-    --blue-dark: #233D4D;
-    --cream: #EDEDCE;
-    --pale-cream: #F5FBE6;
-    --accent-orange: #FE7F2D;
+    --blue-soft: #77B1D4;
+    --blue-light: #90D5FF;
+    --blue-deep: #517891;
+    --accent-orange: #FB6A2C;
+    --accent-plum: #8C1946;
 }
 
 /* -----------------------------------------------------------
@@ -17,42 +15,35 @@
 body {
     margin: 0;
     font-family: "Arial", sans-serif;
-    background-color: var(--blue-dark);
-    color: var(--cream);
+    background-color: var(--blue-soft);
+    color: var(--accent-plum);
     line-height: 1.7;
 }
 
 h1, h2, h3 {
-    color: var(--pale-cream);
+    color: var(--accent-plum);
     margin-top: 0;
 }
 
 p, li {
-    color: var(--cream);
+    color: var(--accent-plum);
 }
 
 /* -----------------------------------------------------------
-   NAVIGATION BAR + LOGO INTEGRATION
+   NAVIGATION BAR + LOGO
 ----------------------------------------------------------- */
 .navbar {
     display: flex;
     align-items: center;
-    padding: 0 30px;
-    background: var(--deep-blue);
+    justify-content: space-between;
+    padding: 12px 30px;
+    background: var(--blue-deep);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 10;
-    height: 90px;
-    border-bottom: 3px solid var(--accent-orange);
-}
-
-.logo-badge {
-    border-right: 3px solid var(--accent-orange);
-    padding: 0 20px 0 0;
-    margin-right: 20px;
-    background: transparent;
-    border-radius: 0;
+    height: 80px;
+    border-bottom: 4px solid var(--accent-orange);
 }
 
 .logo-badge img {
@@ -65,12 +56,11 @@ p, li {
     display: flex;
     gap: 22px;
     margin: 0;
-    padding: 0 0 0 20px;
-    border-left: 3px solid var(--accent-orange);
+    padding: 0;
 }
 
 .navbar a {
-    color: var(--pale-cream);
+    color: white;
     text-decoration: none;
     font-weight: 500;
     transition: 0.3s;
@@ -82,35 +72,42 @@ p, li {
 }
 
 /* -----------------------------------------------------------
-   BUTTON STYLE
+   BANNER IMAGE SECTION
 ----------------------------------------------------------- */
-.button {
-    background: var(--accent-orange);
-    padding: 10px 18px;
-    border-radius: 6px;
-    color: var(--blue-dark);
-    font-weight: bold;
-    transition: 0.3s;
+.banner {
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 80px;
 }
 
-.button:hover {
-    background: var(--blue-soft);
-    color: var(--pale-cream);
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(81, 120, 145, 0.4);
 }
 
-/* -----------------------------------------------------------
-   PAGE HEADERS
------------------------------------------------------------ */
-.sub-header {
-    padding: 110px 20px 60px;
+.banner-content {
+    position: relative;
     text-align: center;
-    margin-top: 0;
-    background: linear-gradient(to bottom right, var(--deep-blue), var(--blue-mid), var(--blue-soft));
+    z-index: 2;
 }
 
-.sub-header h1,
-.sub-header p {
-    color: var(--pale-cream);
+.banner-content h1 {
+    font-size: 3rem;
+    color: white;
+}
+
+.banner-content p {
+    font-size: 1.4rem;
+    color: var(--blue-light);
 }
 
 /* -----------------------------------------------------------
@@ -120,10 +117,13 @@ p, li {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
+    background: var(--blue-light);
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
 
 /* -----------------------------------------------------------
-   IMAGE STYLING — FIXED SIZES + NO CROPPING + FRAMED
+   IMAGE STYLING
 ----------------------------------------------------------- */
 .page-image {
     text-align: center;
@@ -131,55 +131,38 @@ p, li {
 }
 
 .page-image img {
-    max-width: 280px;
+    max-width: 300px;
     width: 100%;
     height: auto;
     border-radius: 12px;
-    border: 3px solid var(--cream);
-    background: rgba(255,255,255,0.08);
+    border: 3px solid white;
+    background: rgba(255,255,255,0.1);
     padding: 6px;
     box-shadow:
-        0 4px 12px rgba(0,0,0,0.35),
-        0 0 12px rgba(254, 127, 45, 0.25);
-}
-
-/* For floating images on About page */
-.feature-img,
-.profile-img {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    float: right;
-    margin: 0 0 20px 20px;
-    border-radius: 12px;
-    border: 3px solid var(--cream);
-    background: rgba(255,255,255,0.08);
-    padding: 6px;
-    box-shadow:
-        0 4px 12px rgba(0,0,0,0.35),
-        0 0 12px rgba(254, 127, 45, 0.25);
+        0 4px 12px rgba(0,0,0,0.25),
+        0 0 12px rgba(251, 106, 44, 0.3);
 }
 
 /* -----------------------------------------------------------
-   THERAPY SECTIONS — DARK THEME, READABLE, SOFT
+   THERAPY SECTIONS
 ----------------------------------------------------------- */
 .walking-therapy,
 .play-therapy-schools,
 .contact-form {
-    background: rgba(0, 0, 0, 0.18);
+    background: var(--blue-light);
     padding: 30px;
     margin: 40px auto;
     border-radius: 12px;
     max-width: 900px;
-    color: var(--pale-cream);
+    color: var(--accent-plum);
     border-left: 6px solid var(--accent-orange);
-    box-shadow: 0 0 12px rgba(0,0,0,0.4);
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
 
 .walking-therapy h2,
 .play-therapy-schools h2,
 .contact-form h2 {
-    color: var(--pale-cream);
+    color: var(--accent-plum);
     margin-bottom: 15px;
 }
 
@@ -190,37 +173,67 @@ p, li {
     padding: 12px;
     margin: 10px 0 20px;
     border-radius: 6px;
-    border: 1px solid var(--blue-soft);
-    background: var(--pale-cream);
-    color: var(--blue-dark);
+    border: 1px solid var(--blue-deep);
+    background: white;
+    color: var(--accent-plum);
 }
 
 .contact-form label {
-    color: var(--pale-cream);
+    color: var(--accent-plum);
 }
 
 /* -----------------------------------------------------------
-   LIST STYLES
+   FOOTER
 ----------------------------------------------------------- */
-.styled-list {
-    list-style: none;
-    padding-left: 0;
+.site-footer {
+    background: var(--blue-deep);
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 60px;
 }
 
-.styled-list li {
-    background: rgba(255,255,255,0.08);
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    color: var(--pale-cream);
-    border-left: 6px solid var(--accent-orange);
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+.footer-section p,
+.footer-section li {
+    color: var(--blue-light);
+    margin: 6px 0;
+}
+
+.footer-section a {
+    color: var(--accent-orange);
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: var(--accent-plum);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--blue-light);
+    color: var(--blue-light);
 }
 
 /* -----------------------------------------------------------
    RESPONSIVE DESIGN
 ----------------------------------------------------------- */
 @media (max-width: 768px) {
-
     .navbar {
         flex-direction: column;
         height: auto;
@@ -232,14 +245,6 @@ p, li {
         justify-content: center;
         gap: 12px;
         margin-top: 10px;
-        border-left: none;
-        padding-left: 0;
-    }
-
-    .logo-badge {
-        border-right: none;
-        padding: 0;
-        margin-bottom: 10px;
     }
 
     .logo-badge img {
@@ -257,52 +262,4 @@ p, li {
         margin: 20px auto;
         max-width: 90%;
     }
-}
-
-/* -----------------------------------------------------------
-   FOOTER
------------------------------------------------------------ */
-.site-footer {
-    background: var(--deep-blue);
-    color: var(--pale-cream);
-    padding: 40px 20px 20px;
-    margin-top: 60px;
-}
-
-.footer-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.footer-section h3,
-.footer-section h4 {
-    margin-bottom: 10px;
-    color: var(--pale-cream);
-}
-
-.footer-section p,
-.footer-section li {
-    color: var(--cream);
-    margin: 6px 0;
-}
-
-.footer-section a {
-    color: var(--accent-orange);
-    text-decoration: none;
-}
-
-.footer-section a:hover {
-    color: var(--blue-soft);
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 1px solid var(--blue-mid);
-    color: var(--cream);
 }
