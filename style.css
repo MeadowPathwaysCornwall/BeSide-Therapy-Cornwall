@@ -114,9 +114,12 @@ p, li {
    BANNER SECTION
 ----------------------------------------------------------- */
 .banner {
+    .banner {
     background-size: cover;
-    background-position: center;
+    background-position: top; /* NEW */
     height: 45vh;
+}
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -152,7 +155,7 @@ p, li {
 
 .banner-content p {
     font-size: 1.3rem;
-    color: var(--footer-blue); /* NEW: deep blue tagline */
+    color: white;
     margin-top: 10px;
 }
 
