@@ -46,8 +46,8 @@ p, li {
     top: 0;
     z-index: 10;
     height: 85px;
-    border-bottom: 4px solid var(--accent-orange);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    border-bottom: 8px solid var(--accent-orange);
+    box-shadow: 0 8px 14px rgba(0,0,0,0.25);
     position: relative;
 }
 
@@ -58,19 +58,19 @@ p, li {
     left: 120px; /* adjust if logo size changes */
     top: 50%;
     width: calc(100% - 160px);
-    height: 2px;
+    height: 4px;
     background: var(--accent-violet);
     transform: translateY(-50%);
     z-index: 0;
 }
 
 .logo-badge img {
-    height: 70px;
+    height: 90px;
     display: block;
-    border-radius: 50%;
-    border: 3px solid var(--accent-violet);
+    border-radius: 70%;
+    border: 6px solid var(--accent-violet);
     background: white;
-    padding: 4px;
+    padding: 6px;
     z-index: 2;
 }
 
@@ -114,8 +114,8 @@ p, li {
     padding: 20px;
 
     /* NEW: Banner border */
-    border: 6px solid var(--accent-orange);
-    border-radius: 10px;
+    border: 10px solid var(--accent-orange);
+    border-radius: 20px;
     overflow: hidden;
 }
 
