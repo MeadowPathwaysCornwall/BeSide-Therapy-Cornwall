@@ -1,12 +1,14 @@
 /* -----------------------------------------------------------
-   COLOUR PALETTE
+   COLOUR PALETTE — STORMY MORNING + ACCENTS
 ----------------------------------------------------------- */
 :root {
-    --blue-soft: #77B1D4;
-    --blue-light: #90D5FF;
-    --blue-deep: #517891;
-    --accent-orange: #FB6A2C;
-    --accent-plum: #8C1946;
+    --stormy-1: #6A89A7;   /* muted blue-grey */
+    --stormy-2: #BDDDFC;   /* pale sky blue */
+    --stormy-3: #88BDF2;   /* bright soft blue */
+    --stormy-4: #384959;   /* deep slate */
+
+    --accent-orange: #E35336;
+    --accent-violet: #8A2B0E;
 }
 
 /* -----------------------------------------------------------
@@ -15,18 +17,18 @@
 body {
     margin: 0;
     font-family: "Arial", sans-serif;
-    background-color: var(--blue-soft);
-    color: var(--accent-plum);
+    background-color: var(--stormy-2);
+    color: var(--stormy-4);
     line-height: 1.7;
 }
 
 h1, h2, h3 {
-    color: var(--accent-plum);
+    color: var(--stormy-4);
     margin-top: 0;
 }
 
 p, li {
-    color: var(--accent-plum);
+    color: var(--stormy-4);
 }
 
 /* -----------------------------------------------------------
@@ -36,25 +38,30 @@ p, li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 30px;
-    background: var(--blue-deep);
+    padding: 14px 40px;
+    background: var(--stormy-1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 10;
-    height: 80px;
+    height: 85px;
     border-bottom: 4px solid var(--accent-orange);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
 .logo-badge img {
-    height: 75px;
+    height: 70px;
     display: block;
+    border-radius: 50%;
+    border: 3px solid var(--accent-violet);
+    background: white;
+    padding: 4px;
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
-    gap: 22px;
+    gap: 28px;
     margin: 0;
     padding: 0;
 }
@@ -62,52 +69,42 @@ p, li {
 .navbar a {
     color: white;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     transition: 0.3s;
 }
 
 .navbar a:hover,
 .navbar a.active {
     color: var(--accent-orange);
+    text-decoration: underline;
 }
 
 /* -----------------------------------------------------------
-   BANNER IMAGE SECTION
+   UNIFIED BANNER SECTION (LOGO + TITLE)
 ----------------------------------------------------------- */
 .banner {
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
+    background: linear-gradient(to right, var(--stormy-1), var(--stormy-2));
+    height: 45vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    margin-top: 80px;
-}
-
-.banner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(81, 120, 145, 0.4);
-}
-
-.banner-content {
+    margin-top: 85px;
     position: relative;
     text-align: center;
-    z-index: 2;
+    padding: 20px;
 }
 
 .banner-content h1 {
     font-size: 3rem;
     color: white;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
 .banner-content p {
-    font-size: 1.4rem;
-    color: var(--blue-light);
+    font-size: 1.3rem;
+    color: var(--stormy-3);
+    margin-top: 10px;
 }
 
 /* -----------------------------------------------------------
@@ -116,14 +113,14 @@ p, li {
 .content {
     max-width: 900px;
     margin: 40px auto;
-    padding: 20px;
-    background: var(--blue-light);
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    padding: 25px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.15);
 }
 
 /* -----------------------------------------------------------
-   IMAGE STYLING
+   IMAGE STYLING (FAQ + PAGE IMAGES)
 ----------------------------------------------------------- */
 .page-image {
     text-align: center;
@@ -131,16 +128,16 @@ p, li {
 }
 
 .page-image img {
-    max-width: 300px;
+    max-width: 220px; /* smaller FAQ image */
     width: 100%;
     height: auto;
     border-radius: 12px;
-    border: 3px solid white;
-    background: rgba(255,255,255,0.1);
+    border: 3px solid var(--stormy-1);
+    background: rgba(255,255,255,0.2);
     padding: 6px;
     box-shadow:
         0 4px 12px rgba(0,0,0,0.25),
-        0 0 12px rgba(251, 106, 44, 0.3);
+        0 0 12px rgba(227, 83, 54, 0.3);
 }
 
 /* -----------------------------------------------------------
@@ -149,12 +146,12 @@ p, li {
 .walking-therapy,
 .play-therapy-schools,
 .contact-form {
-    background: var(--blue-light);
+    background: var(--stormy-2);
     padding: 30px;
     margin: 40px auto;
     border-radius: 12px;
     max-width: 900px;
-    color: var(--accent-plum);
+    color: var(--stormy-4);
     border-left: 6px solid var(--accent-orange);
     box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
@@ -162,7 +159,7 @@ p, li {
 .walking-therapy h2,
 .play-therapy-schools h2,
 .contact-form h2 {
-    color: var(--accent-plum);
+    color: var(--accent-violet);
     margin-bottom: 15px;
 }
 
@@ -173,20 +170,20 @@ p, li {
     padding: 12px;
     margin: 10px 0 20px;
     border-radius: 6px;
-    border: 1px solid var(--blue-deep);
+    border: 1px solid var(--stormy-4);
     background: white;
-    color: var(--accent-plum);
+    color: var(--stormy-4);
 }
 
 .contact-form label {
-    color: var(--accent-plum);
+    color: var(--stormy-4);
 }
 
 /* -----------------------------------------------------------
    FOOTER
 ----------------------------------------------------------- */
 .site-footer {
-    background: var(--blue-deep);
+    background: var(--stormy-1);
     color: white;
     padding: 40px 20px 20px;
     margin-top: 60px;
@@ -209,7 +206,7 @@ p, li {
 
 .footer-section p,
 .footer-section li {
-    color: var(--blue-light);
+    color: var(--stormy-3);
     margin: 6px 0;
 }
 
@@ -219,15 +216,15 @@ p, li {
 }
 
 .footer-section a:hover {
-    color: var(--accent-plum);
+    color: var(--accent-violet);
 }
 
 .footer-bottom {
     text-align: center;
     margin-top: 30px;
     padding-top: 15px;
-    border-top: 1px solid var(--blue-light);
-    color: var(--blue-light);
+    border-top: 1px solid var(--stormy-3);
+    color: var(--stormy-3);
 }
 
 /* -----------------------------------------------------------
@@ -243,7 +240,7 @@ p, li {
     .navbar ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 14px;
         margin-top: 10px;
     }
 
@@ -251,15 +248,20 @@ p, li {
         height: 60px;
     }
 
-    .content {
-        padding: 10px;
+    .banner {
+        height: 35vh;
+        padding: 20px;
     }
 
-    .feature-img,
-    .profile-img {
-        float: none;
-        display: block;
-        margin: 20px auto;
-        max-width: 90%;
+    .banner-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .page-image img {
+        max-width: 180px;
     }
 }
