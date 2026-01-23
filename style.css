@@ -6,6 +6,7 @@
     --stormy-2: #BDDDFC;   /* pale sky blue */
     --stormy-3: #88BDF2;   /* bright soft blue */
     --stormy-4: #384959;   /* deep slate */
+    --Marian Blue: #E1EBEE;  /* pale blue */
 
     --accent-orange: #E35336;
     --accent-violet: #8A2B0E;
@@ -152,7 +153,7 @@ p, li {
     max-width: 900px;
     margin: 40px auto;
     padding: 25px;
-    background: white;
+    background: Marian Blue;
     border-radius: 14px;
     box-shadow: 0 0 14px rgba(0,0,0,0.15);
 }
