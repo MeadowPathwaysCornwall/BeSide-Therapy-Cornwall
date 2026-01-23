@@ -2,30 +2,34 @@
    COLOUR PALETTE — STORMY MORNING + ACCENTS
 ----------------------------------------------------------- */
 :root {
-    --stormy-1: #6A89A7;   /* muted blue-grey */
-    --stormy-2: #BDDDFC;   /* pale sky blue */
-    --stormy-3: #88BDF2;   /* bright soft blue */
-    --stormy-4: #384959;   /* deep slate */
-    --marian-blue: #E1EBEE; /* pale Marian blue */
+    --stormy-1: #6A89A7;
+    --stormy-2: #BDDDFC;
+    --stormy-3: #88BDF2;
+    --stormy-4: #384959;
+    --marian-blue: #E1EBEE;
 
-    --accent-orange: #E35336; /* CLAY ORANGE */
+    --accent-orange: #E35336;
     --accent-violet: #8A2B0E;
 }
 
 /* -----------------------------------------------------------
    GLOBAL STYLES
 ----------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: "Arial", sans-serif;
+    font-family: Arial, sans-serif;
     background-color: var(--stormy-2);
     color: var(--stormy-4);
     line-height: 1.7;
 }
 
 h1, h2, h3 {
-    color: var(--stormy-4);
     margin-top: 0;
+    color: var(--stormy-4);
 }
 
 p, li {
@@ -36,23 +40,27 @@ p, li {
    NAVIGATION BAR + LOGO
 ----------------------------------------------------------- */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     gap: 40px;
-    padding: 14px 40px;
-    background: var(--stormy-1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
+
     height: 130px;
+    padding: 14px 40px;
+
+    background: var(--stormy-1);
     border-bottom: 8px solid var(--accent-orange);
     box-shadow: 0 8px 14px rgba(0,0,0,0.25);
+
+    z-index: 10;
     overflow: visible;
 }
 
-/* Orange line UNDER the navigation text */
+/* Decorative orange line */
 .navbar::after {
     content: "";
     position: absolute;
@@ -64,33 +72,40 @@ p, li {
     z-index: 1;
 }
 
-/* BIGGER LOGO WITH GLOW + OUTLINE */
+/* LOGO */
+.logo-badge {
+    position: relative;
+}
+
 .logo-badge img {
-    height: 180px;
     position: absolute;
-    top: -40px;
     left: 40px;
+    bottom: -90px;
+
+    height: 180px;
+    padding: 6px;
+
+    background: white;
     border-radius: 70%;
     border: 6px solid var(--accent-violet);
-    background: white;
-    padding: 6px;
+
     z-index: 20;
 
-    /* Glow effect */
     box-shadow:
         0 0 12px rgba(0,0,0,0.4),
         0 0 18px rgba(227, 83, 54, 0.4),
         0 0 28px rgba(227, 83, 54, 0.25);
 }
 
-/* NAVIGATION LIST — RECENTRED */
+/* NAVIGATION LIST */
 .navbar ul {
     list-style: none;
     display: flex;
     gap: 32px;
-    margin: 0;
+
+    margin: 0 0 0 260px;
     padding: 0;
-    margin-left: 260px;
+
     position: relative;
     z-index: 2;
 }
@@ -100,31 +115,36 @@ p, li {
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 0.5px;
-    transition: 0.3s;
+    transition: color 0.3s, text-decoration 0.3s;
 }
 
 .navbar a:hover,
-.navbar a.active {
+.navbar a.active,
+.navbar a:focus-visible {
     color: var(--accent-orange);
     text-decoration: underline;
+    outline: none;
 }
 
 /* -----------------------------------------------------------
-   BANNER SECTION — FIXED + IMPROVED
+   BANNER SECTION
 ----------------------------------------------------------- */
 .banner {
-    background-size: cover;
-    background-position: top;
-    height: 65vh; /* bigger, more professional */
+    margin-top: 130px;
+    height: 65vh;
 
     display: flex;
-    justify-content: center;
     align-items: center;
-
-    margin-top: 130px;
-    position: relative;
+    justify-content: center;
     text-align: center;
+
     padding: 20px;
+    position: relative;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--stormy-1);
 
     border: 10px solid var(--accent-orange);
     border-radius: 20px;
@@ -133,11 +153,9 @@ p, li {
 
 .banner-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(81, 120, 145, 0.25);
+    z-index: 1;
 }
 
 .banner-content {
@@ -164,6 +182,7 @@ p, li {
     max-width: 900px;
     margin: 40px auto;
     padding: 25px;
+
     background: var(--marian-blue);
     border-radius: 14px;
     box-shadow: 0 0 14px rgba(0,0,0,0.15);
@@ -181,10 +200,12 @@ p, li {
     max-width: 260px;
     width: 100%;
     height: auto;
+
+    padding: 6px;
     border-radius: 12px;
     border: 3px solid var(--stormy-1);
     background: rgba(255,255,255,0.2);
-    padding: 6px;
+
     box-shadow:
         0 4px 12px rgba(0,0,0,0.25),
         0 0 12px rgba(227, 83, 54, 0.3);
@@ -196,13 +217,15 @@ p, li {
 .walking-therapy,
 .play-therapy-schools,
 .contact-form {
-    background: var(--stormy-2);
-    padding: 30px;
-    margin: 40px auto;
-    border-radius: 12px;
     max-width: 900px;
-    color: var(--stormy-4);
+    margin: 40px auto;
+    padding: 30px;
+
+    background: var(--stormy-2);
+    border-radius: 12px;
     border-left: 6px solid var(--accent-orange);
+
+    color: var(--stormy-4);
     box-shadow: 0 0 12px rgba(0,0,0,0.2);
 }
 
@@ -213,19 +236,20 @@ p, li {
     margin-bottom: 15px;
 }
 
-/* Contact form fields */
+/* FORM */
+.contact-form label {
+    color: var(--stormy-4);
+}
+
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 12px;
     margin: 10px 0 20px;
+
     border-radius: 6px;
     border: 1px solid var(--stormy-4);
     background: white;
-    color: var(--stormy-4);
-}
-
-.contact-form label {
     color: var(--stormy-4);
 }
 
@@ -233,15 +257,17 @@ p, li {
    FOOTER
 ----------------------------------------------------------- */
 .site-footer {
+    margin-top: 60px;
+    padding: 40px 20px 20px;
+
     background: var(--stormy-1);
     color: white;
-    padding: 40px 20px 20px;
-    margin-top: 60px;
 }
 
 .footer-content {
     max-width: 1100px;
     margin: 0 auto;
+
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -255,26 +281,27 @@ p, li {
 }
 
 .footer-section p,
-.footer-section li {
+.footer-section li,
+.footer-section a {
     color: white;
-    margin: 6px 0;
 }
 
 .footer-section a {
-    color: white;
     text-decoration: none;
 }
 
-.footer-section a:hover {
+.footer-section a:hover,
+.footer-section a:focus-visible {
     color: var(--accent-orange);
+    outline: none;
 }
 
 .footer-bottom {
-    text-align: center;
     margin-top: 30px;
     padding-top: 15px;
-    border-top: 1px solid white;
-    color: white;
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.6);
 }
 
 /* -----------------------------------------------------------
@@ -295,7 +322,7 @@ p, li {
 
     .logo-badge img {
         height: 120px;
-        top: -10px;
+        bottom: -50px;
         left: 0;
     }
 
@@ -307,7 +334,6 @@ p, li {
 
     .banner {
         height: 50vh;
-        padding: 20px;
         margin-top: 140px;
     }
 
@@ -323,3 +349,4 @@ p, li {
         max-width: 200px;
     }
 }
+
