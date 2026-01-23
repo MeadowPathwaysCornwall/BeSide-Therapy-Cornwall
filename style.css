@@ -6,9 +6,9 @@
     --stormy-2: #BDDDFC;   /* pale sky blue */
     --stormy-3: #88BDF2;   /* bright soft blue */
     --stormy-4: #384959;   /* deep slate */
-    --Marian Blue: #E1EBEE;  /* pale blue */
+    --marian-blue: #E1EBEE; /* pale Marian blue */
 
-    --accent-orange: #E35336;
+    --accent-orange: #E35336; /* CLAY ORANGE */
     --accent-violet: #8A2B0E;
 }
 
@@ -46,33 +46,35 @@ p, li {
     width: 100%;
     top: 0;
     z-index: 10;
-    height: 85px;
+    height: 110px; /* more space for larger logo */
     border-bottom: 8px solid var(--accent-orange);
     box-shadow: 0 8px 14px rgba(0,0,0,0.25);
-    position: relative;
+    overflow: visible;
 }
 
-/* Connecting line from logo to nav items */
+/* Connecting line UNDER the nav items */
 .navbar::after {
     content: "";
     position: absolute;
-    left: 120px; /* adjust if logo size changes */
-    top: 50%;
-    width: calc(100% - 160px);
+    left: 180px; /* adjusted for larger logo */
+    bottom: 12px; /* sits under nav text */
+    width: calc(100% - 240px);
     height: 4px;
-    background: var(--accent-violet);
-    transform: translateY(-50%);
-    z-index: 0;
+    background: var(--accent-orange);
+    z-index: 1;
 }
 
+/* Larger overlapping logo */
 .logo-badge img {
-    height: 90px;
-    display: block;
+    height: 140px;
+    position: absolute;
+    top: -20px; /* overlaps into banner */
+    left: 40px;
     border-radius: 70%;
     border: 6px solid var(--accent-violet);
     background: white;
     padding: 6px;
-    z-index: 2;
+    z-index: 20;
 }
 
 .navbar ul {
@@ -100,7 +102,7 @@ p, li {
 }
 
 /* -----------------------------------------------------------
-   UNIFIED BANNER SECTION (LOGO + TITLE)
+   BANNER SECTION
 ----------------------------------------------------------- */
 .banner {
     background-size: cover;
@@ -109,12 +111,11 @@ p, li {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 85px;
+    margin-top: 110px; /* matches new navbar height */
     position: relative;
     text-align: center;
     padding: 20px;
 
-    /* NEW: Banner border */
     border: 10px solid var(--accent-orange);
     border-radius: 20px;
     overflow: hidden;
@@ -126,7 +127,7 @@ p, li {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(81, 120, 145, 0.25); /* lighter so your images show */
+    background: rgba(81, 120, 145, 0.25);
 }
 
 .banner-content {
@@ -153,13 +154,13 @@ p, li {
     max-width: 900px;
     margin: 40px auto;
     padding: 25px;
-    background: Marian Blue;
+    background: var(--marian-blue);
     border-radius: 14px;
     box-shadow: 0 0 14px rgba(0,0,0,0.15);
 }
 
 /* -----------------------------------------------------------
-   IMAGE STYLING (FAQ + PAGE IMAGES)
+   IMAGE STYLING
 ----------------------------------------------------------- */
 .page-image {
     text-align: center;
@@ -279,18 +280,12 @@ p, li {
     }
 
     .navbar::after {
-        display: none; /* hide connector line on mobile */
-    }
-
-    .navbar ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
-        margin-top: 10px;
+        display: none;
     }
 
     .logo-badge img {
-        height: 60px;
+        height: 90px;
+        top: -10px;
     }
 
     .banner {
@@ -310,4 +305,3 @@ p, li {
         max-width: 200px;
     }
 }
-
