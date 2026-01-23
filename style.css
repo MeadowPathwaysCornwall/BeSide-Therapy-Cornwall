@@ -10,7 +10,6 @@
 
     --accent-orange: #E35336; /* CLAY ORANGE */
     --accent-violet: #8A2B0E;
-    --footer-blue: #005A9C;
 }
 
 /* -----------------------------------------------------------
@@ -57,7 +56,7 @@ p, li {
 .navbar::after {
     content: "";
     position: absolute;
-    left: 240px; /* adjusted for larger logo */
+    left: 240px;
     bottom: 12px;
     width: calc(100% - 300px);
     height: 4px;
@@ -91,7 +90,7 @@ p, li {
     gap: 32px;
     margin: 0;
     padding: 0;
-    margin-left: 260px; /* pushes nav away from logo */
+    margin-left: 260px;
     position: relative;
     z-index: 2;
 }
@@ -111,18 +110,17 @@ p, li {
 }
 
 /* -----------------------------------------------------------
-   BANNER SECTION
+   BANNER SECTION — FIXED + IMPROVED
 ----------------------------------------------------------- */
 .banner {
-    .banner {
     background-size: cover;
-    background-position: top; /* NEW */
-    height: 45vh;
-}
+    background-position: top;
+    height: 65vh; /* bigger, more professional */
 
     display: flex;
     justify-content: center;
     align-items: center;
+
     margin-top: 130px;
     position: relative;
     text-align: center;
@@ -258,11 +256,10 @@ p, li {
 
 .footer-section p,
 .footer-section li {
-    color: var(--footer-blue); /* NEW: deep blue text */
+    color: white;
     margin: 6px 0;
 }
 
-/* Email links now white */
 .footer-section a {
     color: white;
     text-decoration: none;
@@ -276,8 +273,8 @@ p, li {
     text-align: center;
     margin-top: 30px;
     padding-top: 15px;
-    border-top: 1px solid var(--footer-blue);
-    color: var(--footer-blue);
+    border-top: 1px solid white;
+    color: white;
 }
 
 /* -----------------------------------------------------------
@@ -309,7 +306,7 @@ p, li {
     }
 
     .banner {
-        height: 35vh;
+        height: 50vh;
         padding: 20px;
         margin-top: 140px;
     }
