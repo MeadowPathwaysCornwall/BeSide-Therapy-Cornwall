@@ -1,6 +1,6 @@
-/* -----------------------------------------------------------
+/* ===========================================================
    COLOUR PALETTE — STORMY MORNING + ACCENTS
------------------------------------------------------------ */
+=========================================================== */
 :root {
     --stormy-1: #6A89A7;
     --stormy-2: #BDDDFC;
@@ -12,10 +12,12 @@
     --accent-violet: #8A2B0E;
 }
 
-/* -----------------------------------------------------------
-   GLOBAL STYLES
------------------------------------------------------------ */
-* {
+/* ===========================================================
+   GLOBAL RESET & BASE
+=========================================================== */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -36,21 +38,21 @@ p, li {
     color: var(--stormy-4);
 }
 
-/* -----------------------------------------------------------
+/* ===========================================================
    NAVIGATION BAR + LOGO
------------------------------------------------------------ */
+=========================================================== */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
 
+    height: 130px;
+    padding: 14px 40px;
+
     display: flex;
     align-items: center;
     gap: 40px;
-
-    height: 130px;
-    padding: 14px 40px;
 
     background: var(--stormy-1);
     border-bottom: 8px solid var(--accent-orange);
@@ -60,7 +62,7 @@ p, li {
     overflow: visible;
 }
 
-/* Decorative orange line */
+/* Decorative underline */
 .navbar::after {
     content: "";
     position: absolute;
@@ -69,7 +71,6 @@ p, li {
     width: calc(100% - 300px);
     height: 4px;
     background: var(--accent-orange);
-    z-index: 1;
 }
 
 /* LOGO */
@@ -97,7 +98,7 @@ p, li {
         0 0 28px rgba(227, 83, 54, 0.25);
 }
 
-/* NAVIGATION LIST */
+/* NAVIGATION LINKS */
 .navbar ul {
     list-style: none;
     display: flex;
@@ -126,31 +127,32 @@ p, li {
     outline: none;
 }
 
-/* -----------------------------------------------------------
-   BANNER SECTION
------------------------------------------------------------ */
+/* ===========================================================
+   BANNER / HERO SECTION
+=========================================================== */
 .banner {
     margin-top: 130px;
     height: 65vh;
+    max-height: 720px;
 
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 
     padding: 20px;
-    position: relative;
 
-    background-size: contain;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-position: center;
-    background-color: var(--stormy-1);
 
     border: 10px solid var(--accent-orange);
     border-radius: 20px;
     overflow: hidden;
 }
 
+/* Overlay */
 .banner-overlay {
     position: absolute;
     inset: 0;
@@ -158,6 +160,7 @@ p, li {
     z-index: 1;
 }
 
+/* Text content */
 .banner-content {
     position: relative;
     z-index: 2;
@@ -166,7 +169,7 @@ p, li {
 .banner-content h1 {
     font-size: 3rem;
     color: white;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    text-shadow: 0 3px 6px rgba(0,0,0,0.35);
 }
 
 .banner-content p {
@@ -175,9 +178,9 @@ p, li {
     margin-top: 10px;
 }
 
-/* -----------------------------------------------------------
-   CONTENT SECTIONS
------------------------------------------------------------ */
+/* ===========================================================
+   CONTENT BLOCKS
+=========================================================== */
 .content {
     max-width: 900px;
     margin: 40px auto;
@@ -188,17 +191,17 @@ p, li {
     box-shadow: 0 0 14px rgba(0,0,0,0.15);
 }
 
-/* -----------------------------------------------------------
-   IMAGE STYLING
------------------------------------------------------------ */
+/* ===========================================================
+   IMAGES
+=========================================================== */
 .page-image {
     text-align: center;
     margin: 25px 0;
 }
 
 .page-image img {
-    max-width: 260px;
     width: 100%;
+    max-width: 260px;
     height: auto;
 
     padding: 6px;
@@ -211,9 +214,9 @@ p, li {
         0 0 12px rgba(227, 83, 54, 0.3);
 }
 
-/* -----------------------------------------------------------
-   THERAPY SECTIONS
------------------------------------------------------------ */
+/* ===========================================================
+   THERAPY / FEATURE SECTIONS
+=========================================================== */
 .walking-therapy,
 .play-therapy-schools,
 .contact-form {
@@ -236,7 +239,9 @@ p, li {
     margin-bottom: 15px;
 }
 
-/* FORM */
+/* ===========================================================
+   CONTACT FORM
+=========================================================== */
 .contact-form label {
     color: var(--stormy-4);
 }
@@ -253,9 +258,9 @@ p, li {
     color: var(--stormy-4);
 }
 
-/* -----------------------------------------------------------
+/* ===========================================================
    FOOTER
------------------------------------------------------------ */
+=========================================================== */
 .site-footer {
     margin-top: 60px;
     padding: 40px 20px 20px;
@@ -277,7 +282,6 @@ p, li {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 10px;
-    color: white;
 }
 
 .footer-section p,
@@ -300,13 +304,12 @@ p, li {
     margin-top: 30px;
     padding-top: 15px;
     text-align: center;
-
     border-top: 1px solid rgba(255,255,255,0.6);
 }
 
-/* -----------------------------------------------------------
-   RESPONSIVE DESIGN
------------------------------------------------------------ */
+/* ===========================================================
+   RESPONSIVE — TABLET & MOBILE
+=========================================================== */
 @media (max-width: 768px) {
 
     .navbar {
@@ -349,4 +352,3 @@ p, li {
         max-width: 200px;
     }
 }
-
