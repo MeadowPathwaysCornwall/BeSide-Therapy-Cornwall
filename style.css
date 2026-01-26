@@ -9,7 +9,7 @@
     --marian-blue: #E1EBEE;
 
     --accent-orange: #E35336;
-    --accent-blue: #FF0000;
+    --accent-blue: #00008B; /* Deep blue from Logo1.png */
 }
 
 /* ===========================================================
@@ -39,6 +39,34 @@ p, li {
 }
 
 /* ===========================================================
+   MIST BACKGROUND EFFECT (Reusable)
+=========================================================== */
+.mist-background,
+.navbar,
+.site-footer {
+    position: relative;
+    background: linear-gradient(to bottom, #BDDDFC, #6A89A7);
+    overflow: hidden;
+}
+
+.mist-background::before,
+.navbar::before,
+.site-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    pointer-events: none;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+}
+
+.navbar *,
+.site-footer * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===========================================================
    NAVIGATION BAR + LOGO
 =========================================================== */
 .navbar {
@@ -54,12 +82,10 @@ p, li {
     align-items: center;
     gap: 40px;
 
-    background: var(--stormy-1);
-    border-bottom: 8px solid var(--accent-orange);
+    border-bottom: 8px solid var(--accent-blue);
     box-shadow: 0 8px 14px rgba(0,0,0,0.25);
 
     z-index: 10;
-    overflow: visible;
 }
 
 /* Decorative underline */
@@ -71,6 +97,7 @@ p, li {
     width: calc(100% - 300px);
     height: 4px;
     background: var(--accent-orange);
+    z-index: 2;
 }
 
 /* LOGO */
@@ -88,7 +115,7 @@ p, li {
 
     background: white;
     border-radius: 70%;
-    border-bottom: 4px solid #00008B;
+    border-bottom: 4px solid var(--accent-blue);
 
     z-index: 20;
 
@@ -116,14 +143,16 @@ p, li {
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 0.5px;
-    transition: color 0.3s, text-decoration 0.3s;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: 0.3s ease;
 }
 
 .navbar a:hover,
 .navbar a.active,
 .navbar a:focus-visible {
     color: var(--accent-orange);
-    text-decoration: underline;
+    background: rgba(255,255,255,0.15);
     outline: none;
 }
 
@@ -152,7 +181,6 @@ p, li {
     overflow: hidden;
 }
 
-/* Overlay */
 .banner-overlay {
     position: absolute;
     inset: 0;
@@ -160,7 +188,6 @@ p, li {
     z-index: 1;
 }
 
-/* Text content */
 .banner-content {
     position: relative;
     z-index: 2;
@@ -235,7 +262,7 @@ p, li {
 .walking-therapy h2,
 .play-therapy-schools h2,
 .contact-form h2 {
-    color: var(--accent-violet);
+    color: var(--stormy-4);
     margin-bottom: 15px;
 }
 
@@ -265,7 +292,7 @@ p, li {
     margin-top: 60px;
     padding: 40px 20px 20px;
 
-    background: var(--stormy-1);
+    border-top: 8px solid var(--accent-blue);
     color: white;
 }
 
