@@ -1,5 +1,5 @@
 /* ===========================================================
-   COLOUR PALETTE — STORMY MORNING (ORIGINAL)
+   COLOUR PALETTE — STORMY MORNING
 =========================================================== */
 :root {
     --stormy-1: #6A89A7;
@@ -9,11 +9,11 @@
     --marian-blue: #2B4593;
 
     --accent-orange: #E35336;
-    --accent-blue: #00008B;
+    --accent-blue: #00008B; /* Deep blue from Logo1.png */
 }
 
 /* ===========================================================
-   GLOBAL DEPTH & TEXTURE
+   GLOBAL BASE + TEXTURED BACKGROUND
 =========================================================== */
 body {
     margin: 0;
@@ -24,63 +24,115 @@ body {
     position: relative;
 }
 
-/* 2026 Professional Linen Overlay for the whole site */
+/* Subtle linen texture */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    opacity: 0.15;
+    opacity: 0.12;
     pointer-events: none;
-    z-index: -1;
-    /* Creates a cross-hatch linen texture to add depth to Marian Blue */
-    background-image: 
+    z-index: -2;
+    background-image:
         linear-gradient(90deg, rgba(255,255,255,.05) 50%, transparent 50%),
         linear-gradient(rgba(255,255,255,.05) 50%, transparent 50%);
     background-size: 3px 3px;
 }
 
+/* Soft radial depth */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.25) 100%);
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    color: var(--stormy-4);
+}
+
+p, li {
+    color: var(--stormy-4);
+}
+
 /* ===========================================================
-   NAVIGATION & LOGO (FIXED)
+   HEADER — MISTY GRADIENT + FLOATING LOGO
 =========================================================== */
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
+
     height: 130px;
     padding: 14px 40px;
+
     display: flex;
     align-items: center;
+    gap: 40px;
+
     background: linear-gradient(to bottom, #BDDDFC, #6A89A7);
     border-bottom: 8px solid var(--accent-blue);
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
     z-index: 1000;
+    overflow: visible;
 }
 
-/* LOGO FIX: Changed bottom to top to prevent hiding */
+/* Mist layer */
+.navbar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+}
+
+/* Orange underline */
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 240px;
+    bottom: 12px;
+    width: calc(100% - 300px);
+    height: 4px;
+    background: var(--accent-orange);
+    z-index: 6;
+}
+
+/* LOGO — FLOATING BETWEEN HEADER + CONTENT */
+.logo-badge {
+    position: relative;
+}
+
 .logo-badge img {
     position: absolute;
-    top: 15px; /* Hangs from top instead of pushing from bottom */
     left: 40px;
+    bottom: -160px; /* FLOATS between header + content */
     height: 180px;
     padding: 6px;
+
     background: white;
     border-radius: 70%;
     border-bottom: 4px solid var(--accent-blue);
-    z-index: 9999;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+
+    z-index: 9999; /* Always on top */
+    box-shadow:
+        0 0 12px rgba(0,0,0,0.4),
+        0 0 18px rgba(227, 83, 54, 0.4),
+        0 0 28px rgba(227, 83, 54, 0.25);
 }
 
-/* Interactive Pop: Subtle scale on hover */
-.logo-badge img:hover {
-    transform: scale(1.03);
-}
-
+/* NAV LINKS */
 .navbar ul {
     list-style: none;
     display: flex;
     gap: 32px;
     margin: 0 0 0 260px;
     padding: 0;
+    z-index: 10;
 }
 
 .navbar a {
@@ -89,68 +141,207 @@ body::before {
     font-weight: 600;
     padding: 8px 12px;
     border-radius: 6px;
-    transition: all 0.3s ease;
+    transition: 0.3s ease;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar a.active {
     background: rgba(255,255,255,0.2);
     color: var(--accent-orange);
-    box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
 }
 
 /* ===========================================================
-   MAIN SECTIONS (With Watercolor Texture)
+   BANNER / HERO
 =========================================================== */
-.content, .walking-therapy, .play-therapy-schools, .contact-form {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 35px;
-    background-color: var(--stormy-2);
-    border-radius: 14px;
+.banner {
+    margin-top: 130px;
+    height: 65vh;
+    max-height: 720px;
+
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 20px;
+
+    background-size: cover;
+    background-position: center;
+    border: 10px solid var(--accent-orange);
+    border-radius: 20px;
     overflow: hidden;
-    /* Retaining original borders where applicable */
-    border-left: 6px solid var(--accent-orange);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
-/* Watercolor/Paper Grain effect for sections */
-.content::after, .walking-therapy::after, .play-therapy-schools::after, .contact-form::after {
-    content: "";
+.banner-overlay {
     position: absolute;
     inset: 0;
-    opacity: 0.08;
-    pointer-events: none;
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');
+    background: rgba(81,120,145,0.25);
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.35);
+}
+
+.banner-content p {
+    font-size: 1.3rem;
+    color: white;
 }
 
 /* ===========================================================
-   IMAGE STYLING (ORIGINAL + ENHANCED)
+   CONTENT BLOCKS
 =========================================================== */
+.content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
+
+    background: var(--stormy-2);
+    border-radius: 14px;
+    box-shadow: 0 0 14px rgba(0,0,0,0.15);
+    position: relative;
+}
+
+/* ===========================================================
+   IMAGES
+=========================================================== */
+.page-image {
+    text-align: center;
+    margin: 25px 0;
+}
+
 .page-image img {
     width: 100%;
     max-width: 260px;
     padding: 6px;
     border-radius: 12px;
-    /* Keeping original Stormy-1 border */
     border: 3px solid var(--stormy-1);
     background: rgba(255,255,255,0.2);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: filter 0.3s ease;
-}
-
-/* Professional "Pop": images gain clarity on hover */
-.page-image img:hover {
-    filter: brightness(1.05) contrast(1.05);
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.25),
+        0 0 12px rgba(227,83,54,0.3);
 }
 
 /* ===========================================================
-   FOOTER (Solid to Gradient Depth)
+   THERAPY SECTIONS
+=========================================================== */
+.walking-therapy,
+.play-therapy-schools,
+.contact-form {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+
+    background: var(--stormy-2);
+    border-radius: 12px;
+    border-left: 6px solid var(--accent-orange);
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+/* ===========================================================
+   CONTACT FORM
+=========================================================== */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border-radius: 6px;
+    border: 1px solid var(--stormy-4);
+    background: white;
+    color: var(--stormy-4);
+}
+
+/* ===========================================================
+   FOOTER — MISTY GRADIENT
 =========================================================== */
 .site-footer {
-    padding: 60px 20px;
-    background: linear-gradient(180deg, var(--stormy-1) 0%, var(--marian-blue) 100%);
+    margin-top: 60px;
+    padding: 40px 20px 20px;
+
+    background: linear-gradient(180deg, var(--stormy-1), var(--marian-blue));
     border-top: 8px solid var(--accent-blue);
     color: white;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
 }
+
+.site-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+    pointer-events: none;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.6);
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .navbar::after {
+        display: none;
+    }
+
+    .logo-badge img {
+        height: 120px;
+        bottom: -50px;
+        left: 0;
+    }
+
+    .navbar ul {
+        margin-left: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .banner {
+        height: 50vh;
+        margin-top: 140px;
+    }
+
+    .banner-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .page-image img {
+        max-width: 200px;
+    }
+}
+
