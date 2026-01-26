@@ -6,7 +6,7 @@
     --stormy-2: #BDDDFC;
     --stormy-3: #88BDF2;
     --stormy-4: #384959;
-    --marian-blue: #E1EBEE;
+    --marian-blue: #2B4593;
 
     --accent-orange: #E35336;
     --accent-blue: #00008B; /* Deep blue from Logo1.png */
@@ -24,9 +24,34 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: var(--stormy-2);
     color: var(--stormy-4);
     line-height: 1.7;
+
+    /* TEXTURED BACKGROUND */
+    background-color: var(--marian-blue);
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: 0.1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(90deg, rgba(255,255,255,.07) 50%, transparent 50%),
+        linear-gradient(rgba(255,255,255,.07) 50%, transparent 50%);
+    background-size: 4px 4px;
+    z-index: -2;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 h1, h2, h3 {
@@ -39,9 +64,8 @@ p, li {
 }
 
 /* ===========================================================
-   MIST BACKGROUND EFFECT (Reusable)
+   MIST BACKGROUND EFFECT (Header + Footer)
 =========================================================== */
-.mist-background,
 .navbar,
 .site-footer {
     position: relative;
@@ -49,7 +73,6 @@ p, li {
     overflow: hidden;
 }
 
-.mist-background::before,
 .navbar::before,
 .site-footer::before {
     content: "";
@@ -57,13 +80,18 @@ p, li {
     inset: 0;
     opacity: 0.15;
     pointer-events: none;
+    z-index: 1;
     background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
 }
 
-.navbar *,
+.navbar * {
+    position: relative;
+    z-index: 5;
+}
+
 .site-footer * {
     position: relative;
-    z-index: 2;
+    z-index: 5;
 }
 
 /* ===========================================================
@@ -85,7 +113,7 @@ p, li {
     border-bottom: 8px solid var(--accent-blue);
     box-shadow: 0 8px 14px rgba(0,0,0,0.25);
 
-    z-index: 10;
+    z-index: 1000;
 }
 
 /* Decorative underline */
@@ -97,7 +125,7 @@ p, li {
     width: calc(100% - 300px);
     height: 4px;
     background: var(--accent-orange);
-    z-index: 2;
+    z-index: 6;
 }
 
 /* LOGO */
@@ -117,8 +145,7 @@ p, li {
     border-radius: 70%;
     border-bottom: 4px solid var(--accent-blue);
 
-    z-index: 20;
-
+    z-index: 9999; /* Always above header */
     box-shadow:
         0 0 12px rgba(0,0,0,0.4),
         0 0 18px rgba(227, 83, 54, 0.4),
@@ -135,7 +162,7 @@ p, li {
     padding: 0;
 
     position: relative;
-    z-index: 2;
+    z-index: 10;
 }
 
 .navbar a {
@@ -213,7 +240,7 @@ p, li {
     margin: 40px auto;
     padding: 25px;
 
-    background: var(--marian-blue);
+    background: var(--stormy-2);
     border-radius: 14px;
     box-shadow: 0 0 14px rgba(0,0,0,0.15);
 }
@@ -257,13 +284,6 @@ p, li {
 
     color: var(--stormy-4);
     box-shadow: 0 0 12px rgba(0,0,0,0.2);
-}
-
-.walking-therapy h2,
-.play-therapy-schools h2,
-.contact-form h2 {
-    color: var(--stormy-4);
-    margin-bottom: 15px;
 }
 
 /* ===========================================================
