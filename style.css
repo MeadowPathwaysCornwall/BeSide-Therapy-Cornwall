@@ -9,7 +9,7 @@
     --marian-blue: #E1EBEE;
 
     --accent-orange: #E35336;
-    --accent-violet: #8A2B0E;
+    --accent-blue: #FF0000;
 }
 
 /* ===========================================================
@@ -88,7 +88,7 @@ p, li {
 
     background: white;
     border-radius: 70%;
-    border: 6px solid var(--accent-violet);
+    border-bottom: 4px solid #00008B;
 
     z-index: 20;
 
