@@ -205,6 +205,13 @@ a:hover {
     color: white;
     text-shadow: 0 3px 6px rgba(0,0,0,0.35);
 }
+.banner-tagline {
+    font-weight: 700;          /* makes it bold */
+    font-size: 1.6rem;         /* slightly larger for presence */
+    color: white;              /* ensures visibility */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.35); /* matches your banner aesthetic */
+    margin-top: 10px;
+}
 
 /* ===========================================================
    UNIVERSAL CONTENT SECTIONS — BLUE BG + LIGHT OVERLAY
