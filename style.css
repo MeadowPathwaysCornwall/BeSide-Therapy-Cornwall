@@ -206,13 +206,9 @@ a:hover {
 }
 
 /* ===========================================================
-   CONTENT BLOCKS — WITH TEXTURED BACKGROUND + SOFT OVERLAY
+   UNIVERSAL CONTENT SECTIONS — APPLY TEXTURED BACKGROUND
 =========================================================== */
-.content,
-.walking-therapy,
-.play-therapy-schools,
-.fees-content,
-.faq-content {
+main section {
     position: relative;
     max-width: 900px;
     margin: 40px auto;
@@ -227,12 +223,8 @@ a:hover {
     box-shadow: 0 0 14px rgba(0,0,0,0.15);
 }
 
-/* Soft white overlay for readability */
-.content::before,
-.walking-therapy::before,
-.play-therapy-schools::before,
-.fees-content::before,
-.faq-content::before {
+/* Soft overlay */
+main section::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -241,11 +233,7 @@ a:hover {
     z-index: 0;
 }
 
-.content > *,
-.walking-therapy > *,
-.play-therapy-schools > *,
-.fees-content > *,
-.faq-content > * {
+main section > * {
     position: relative;
     z-index: 1;
 }
@@ -303,18 +291,19 @@ a:hover {
 }
 
 /* ===========================================================
-   FOOTER — CLEAN + REDUCED
+   FOOTER — MATCH HEADER GRADIENT
 =========================================================== */
 .site-footer {
     margin-top: 60px;
     padding: 20px;
 
-    background: var(--marian-blue);
+    background: linear-gradient(to bottom, #BDDDFC, #6A89A7);
     border-top: 6px solid var(--accent-blue);
+
     color: white;
     text-align: center;
-
     font-size: 0.9rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .footer-content,
@@ -368,4 +357,3 @@ a:hover {
         max-width: 200px;
     }
 }
-
