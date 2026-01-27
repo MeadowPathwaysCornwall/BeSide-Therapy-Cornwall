@@ -26,7 +26,8 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     color: var(--text-dark);
     background-color: var(--marian-blue);
-    line-height: 1.7;
+    font-size: 18px; /* Increased for readability */
+    line-height: 1.75;
     position: relative;
 }
 
@@ -126,7 +127,7 @@ a:hover {
     position: absolute;
     left: 40px;
     bottom: -160px;
-    height: 180px;
+    height: 210px; /* Increased size */
     padding: 6px;
 
     background: white;
@@ -206,7 +207,7 @@ a:hover {
 }
 
 /* ===========================================================
-   UNIVERSAL CONTENT SECTIONS — BLUE BG + OVERLAY
+   UNIVERSAL CONTENT SECTIONS — BLUE BG + LIGHT OVERLAY
 =========================================================== */
 
 main section,
@@ -229,7 +230,7 @@ main section,
     box-shadow: 0 0 14px rgba(0,0,0,0.15);
 }
 
-/* Soft overlay — lighter so the pattern shows through */
+/* Lighter overlay so pattern shows */
 main section::before,
 .content::before,
 .walking-therapy::before,
@@ -239,11 +240,10 @@ main section::before,
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255,255,255,0.35); /* was 0.65 */
+    background: rgba(255,255,255,0.35);
     border-radius: inherit;
     z-index: 0;
 }
-
 
 main section > *,
 .content > *,
@@ -253,6 +253,15 @@ main section > *,
 .faq-content > * {
     position: relative;
     z-index: 1;
+}
+
+/* ===========================================================
+   FAQ HEADING FIX
+=========================================================== */
+.faq-content h2 {
+    color: white;
+    font-size: 2rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
 /* ===========================================================
@@ -323,6 +332,12 @@ main section > *,
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+/* Footer email visibility */
+.site-footer a {
+    color: #ffffff;
+    font-weight: 600;
+}
+
 .footer-content,
 .footer-bottom {
     margin: 0;
@@ -346,7 +361,7 @@ main section > *,
     }
 
     .logo-badge img {
-        height: 120px;
+        height: 150px;
         bottom: -50px;
         left: 0;
     }
@@ -374,4 +389,3 @@ main section > *,
         max-width: 200px;
     }
 }
-
