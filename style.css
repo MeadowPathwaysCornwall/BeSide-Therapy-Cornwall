@@ -206,9 +206,15 @@ a:hover {
 }
 
 /* ===========================================================
-   UNIVERSAL CONTENT SECTIONS — APPLY TEXTURED BACKGROUND
+   UNIVERSAL CONTENT SECTIONS — BLUE BG + OVERLAY
 =========================================================== */
-main section {
+
+main section,
+.content,
+.walking-therapy,
+.play-therapy-schools,
+.fees-content,
+.faq-content {
     position: relative;
     max-width: 900px;
     margin: 40px auto;
@@ -224,7 +230,12 @@ main section {
 }
 
 /* Soft overlay */
-main section::before {
+main section::before,
+.content::before,
+.walking-therapy::before,
+.play-therapy-schools::before,
+.fees-content::before,
+.faq-content::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -233,7 +244,12 @@ main section::before {
     z-index: 0;
 }
 
-main section > * {
+main section > *,
+.content > *,
+.walking-therapy > *,
+.play-therapy-schools > *,
+.fees-content > *,
+.faq-content > * {
     position: relative;
     z-index: 1;
 }
@@ -291,11 +307,11 @@ main section > * {
 }
 
 /* ===========================================================
-   FOOTER — MATCH HEADER GRADIENT
+   FOOTER — SMALL + MATCHES HEADER GRADIENT
 =========================================================== */
 .site-footer {
-    margin-top: 60px;
-    padding: 20px;
+    margin-top: 40px;
+    padding: 15px 20px;
 
     background: linear-gradient(to bottom, #BDDDFC, #6A89A7);
     border-top: 6px solid var(--accent-blue);
@@ -357,3 +373,4 @@ main section > * {
         max-width: 200px;
     }
 }
+
