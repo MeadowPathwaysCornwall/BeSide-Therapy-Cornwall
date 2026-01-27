@@ -206,16 +206,48 @@ a:hover {
 }
 
 /* ===========================================================
-   CONTENT BLOCKS
+   CONTENT BLOCKS — WITH TEXTURED BACKGROUND + SOFT OVERLAY
 =========================================================== */
-.content {
+.content,
+.walking-therapy,
+.play-therapy-schools,
+.fees-content,
+.faq-content {
+    position: relative;
     max-width: 900px;
     margin: 40px auto;
     padding: 25px;
 
-    background: var(--stormy-2);
+    background-image: url('blue bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
     border-radius: 14px;
     box-shadow: 0 0 14px rgba(0,0,0,0.15);
+}
+
+/* Soft white overlay for readability */
+.content::before,
+.walking-therapy::before,
+.play-therapy-schools::before,
+.fees-content::before,
+.faq-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.65);
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.content > *,
+.walking-therapy > *,
+.play-therapy-schools > *,
+.fees-content > *,
+.faq-content > * {
+    position: relative;
+    z-index: 1;
 }
 
 /* ===========================================================
@@ -233,21 +265,6 @@ a:hover {
         0 0 12px rgba(227,83,54,0.3);
     margin: 25px auto;
     display: block;
-}
-
-/* ===========================================================
-   SPECIAL SECTIONS
-=========================================================== */
-.walking-therapy,
-.play-therapy-schools,
-.fees-content,
-.faq-content {
-    background: var(--stormy-2);
-    padding: 30px;
-    border-radius: 12px;
-    border-left: 6px solid var(--accent-orange);
-    box-shadow: 0 0 12px rgba(0,0,0,0.2);
-    margin-top: 40px;
 }
 
 /* ===========================================================
@@ -286,33 +303,24 @@ a:hover {
 }
 
 /* ===========================================================
-   FOOTER — MISTY GRADIENT
+   FOOTER — CLEAN + REDUCED
 =========================================================== */
 .site-footer {
     margin-top: 60px;
-    padding: 40px 20px 20px;
+    padding: 20px;
 
-    background: linear-gradient(180deg, var(--stormy-1), var(--marian-blue));
-    border-top: 8px solid var(--accent-blue);
+    background: var(--marian-blue);
+    border-top: 6px solid var(--accent-blue);
     color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    position: relative;
-}
-
-.footer-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.footer-bottom {
-    margin-top: 30px;
-    padding-top: 15px;
     text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.6);
+
+    font-size: 0.9rem;
+}
+
+.footer-content,
+.footer-bottom {
+    margin: 0;
+    padding: 0;
 }
 
 /* ===========================================================
@@ -360,3 +368,4 @@ a:hover {
         max-width: 200px;
     }
 }
+
